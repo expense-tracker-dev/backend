@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: moneymate-backend
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn moneymate.wsgi:application --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ML_BASE_URL
+        value: "https://ml-reposit.onrender.com"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: moneymate-db
+          property: connectionString
+
+databases:
+  - name: moneymate-db
+    databaseName: moneymate_db
+    user: moneymate_user
