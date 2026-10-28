@@ -30,6 +30,12 @@ Edit `.env` and set your PostgreSQL password:
 DB_PASSWORD=your_postgres_password_here
 ```
 
+To use the Supabase database instead, set `DATABASE_URL` in `.env` using the
+connection string in `.env.example`. Replace `YOUR_URL_ENCODED_PASSWORD` with
+your Supabase database password, percent-encoding any special characters.
+When `DATABASE_URL` is set, Django uses it instead of the individual `DB_*`
+settings. Keep `.env` local and do not commit database credentials.
+
 ### 4. Create & Activate Virtual Environment
 ```powershell
 python -m venv venv
