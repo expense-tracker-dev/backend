@@ -26,6 +26,18 @@ db.sqlite3
 *.swp
 *.swo
 
+# Node (Prisma tooling)
+node_modules/
+package-lock.json
+package.json
+prisma.config.ts
+
+# Agent config folders
+.agents/
+.claude/
+.cursor/
+.devin/
+
 # OS
 .DS_Store
 Thumbs.db
